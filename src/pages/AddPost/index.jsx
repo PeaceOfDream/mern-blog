@@ -118,7 +118,11 @@ export const AddPost = () => {
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
             Удалить
           </Button>
-          <img className={styles.image} src={`http://localhost:4444${imageUrl}`} alt="Uploaded" />
+          <img
+            className={styles.image}
+            src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
+            alt="Uploaded"
+          />
         </>
       )}
 
@@ -143,7 +147,7 @@ export const AddPost = () => {
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
         <Button onClick={onSubmit} size="large" variant="contained">
-         {isEditing ? 'Редактировать' : 'Опубликовать'}
+          {isEditing ? 'Редактировать' : 'Опубликовать'}
         </Button>
         <a href="/">
           <Button size="large">Отмена</Button>
